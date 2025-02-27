@@ -11,9 +11,20 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Set up Swift
+        uses: actions/setup-swift@v1
+        with:
+          swift-version: '5.3'
+
+      - name: Build
+        run: |
+          cd path/to/directory/containing/Package.swift
+          swift build -v
     steps:
     - uses: actions/checkout@v4
     - name: Build
